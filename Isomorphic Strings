@@ -1,0 +1,19 @@
+bool areIsomorphic(string &str1, string &str2)
+{
+    // Write your code here
+    int hash[256]={0};
+    bool isCharMapped[256]={0};
+
+    for(int i=0;i<str1.size();i++){
+        if(hash[str1[i]]==0 && isCharMapped[str2[i]]==0){
+            hash[str1[i]]=str2[i];
+            isCharMapped[str2[i]]=true;
+        }
+    }
+    for(int i=0;i<str1.size();i++){
+        if(char(hash[str1[i]]!=str2[i])){
+            return false;
+        }
+    }
+    return true;
+}
